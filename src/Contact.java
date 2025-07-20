@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 public class Contact {
     private String contactId;
     private String firstName;
@@ -6,7 +8,8 @@ public class Contact {
     private String address;
 
     public Contact(String contactId, String firstName, String lastName, String phoneNumber, String address) {
-        this.contactId = contactId;
+        if (contactId == null || contactId.length() > 10) {throw new IllegalArgumentException("Contact Id input is invalid");}
+        else {this.contactId = contactId;}
         setFirstName(firstName);
         setLastName(lastName);
         setPhoneNumber(phoneNumber);
@@ -18,8 +21,8 @@ public class Contact {
     public String getFirstName() {return firstName;}
 
     public void setFirstName(String firstName) {
-        if (firstName.length() > 10) {
-            throw new IllegalArgumentException("Input string exceeds the maximum character amount");
+        if (firstName == null || firstName.length() > 10) {
+            throw new IllegalArgumentException("Input string is invalid");
         } else {
             this.firstName = firstName;
         }
@@ -28,20 +31,20 @@ public class Contact {
     public String getLastName() {return lastName;}
     
     public void setLastName(String lastName) {
-        if (lastName.length() > 10) {
-            throw new IllegalArgumentException("Input string exceeds the maximum character amount");
+        if (lastName == null || lastName.length() > 10) {
+            throw new IllegalArgumentException("Input string is invalid");
         } else {
-            this.lastName = firstName;
+            this.lastName = lastName;
         }
     }
     
     public String getPhoneNumber() {return phoneNumber;}
     
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() > 10) {
-            throw new IllegalArgumentException("Input string exceeds the maximum character amount");
+        if (phoneNumber == null || phoneNumber.length() > 10) {
+            throw new IllegalArgumentException("Input string is invalid");
         } else if (phoneNumber.chars().anyMatch(Character::isAlphabetic)) {
-            throw new IllegalArgumentException("Input string must only contain numbers");
+            throw new IllegalArgumentException("Input string is invalid");
         } else {
             this.phoneNumber = phoneNumber;
         }
@@ -50,8 +53,8 @@ public class Contact {
     public String getAddress() {return address;}
 
     public void setAddress(String address) {
-        if (address.length() > 30) {
-            throw new IllegalArgumentException("Input string exceeds the maximum character amount");
+        if (address == null || address.length() > 30) {
+            throw new IllegalArgumentException("Input string is invalid");
         } else {
             this.address = address;
         }
