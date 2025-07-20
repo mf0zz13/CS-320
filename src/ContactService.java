@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Contact_Service {
+public class ContactService {
 
     String uniqueId;
     long idNumber = 0;
@@ -11,6 +11,7 @@ public class Contact_Service {
             uniqueId = String.valueOf(idNumber);
             idNumber++;
 
+            if (contacts.containsKey(uniqueId)) {throw new IllegalStateException("Generated Id is not unique");}
             Contact tempContact = new Contact(uniqueId, firstName, lastName, number, address);
             contacts.put(uniqueId, tempContact);
         }catch (Exception e){
