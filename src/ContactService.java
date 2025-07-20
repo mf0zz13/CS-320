@@ -37,6 +37,7 @@ public class ContactService {
                 Contact tempContact = contacts.get(uniqueId);
                 tempContact.setFirstName(firstName);
             }
+            else {throw new IllegalArgumentException("Invalid argument");}
         }catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -48,6 +49,7 @@ public class ContactService {
                 Contact tempContact = contacts.get(uniqueId);
                 tempContact.setLastName(lastName);
             }
+            else {throw new IllegalArgumentException("Invalid argument");}
         }catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -58,6 +60,7 @@ public class ContactService {
                 Contact tempContact = contacts.get(uniqueId);
                 tempContact.setPhoneNumber(number);
             }
+            else {throw new IllegalArgumentException("Invalid argument");}
         }catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -68,6 +71,7 @@ public class ContactService {
                 Contact tempContact = contacts.get(uniqueId);
                 tempContact.setAddress(address);
             }
+            else {throw new IllegalArgumentException("Invalid argument");}
         }catch (Exception e) {
             System.err.println(e.getMessage());
         }
