@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 public class Contact {
     private String contactId;
     private String firstName;
