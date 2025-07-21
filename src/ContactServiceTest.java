@@ -38,5 +38,16 @@ public class ContactServiceTest {
         ContactService testContractService = new ContactService();
         testContractService.addContact("Michael", "Foster", "1234567890", "1234 Test Address");
 
+        assertDoesNotThrow(()->testContractService.updateFirstName("0","Foster"));
+        assertDoesNotThrow(()->testContractService.updateLastName("0", "Michael"));
+        assertDoesNotThrow(()->testContractService.updateNumber("0","0000000000"));
+        assertDoesNotThrow(()->testContractService.updateAddress("0","0123456789 road 01234567890123"));
+
+        Contact testContact = testContractService.contacts.get("0");
+
+        assertEquals("Foster",testContact.getFirstName());
+        assertEquals("Michael",testContact.getLastName());
+        assertEquals("0000000000",testContact.getPhoneNumber());
+        assertEquals("0123456789 road 01234567890123",testContact.getAddress());
    }
 }
